@@ -4,27 +4,21 @@
  * and open the template in the editor.
  */
 package org.synbiotools.simulation;
+import sim.engine.*;
+import sim.field.continuous.*;
+import sim.util.*;
 
 /**
  *
  * @author tiffanywu
  */
-public class Participant {
-    public String role;
-    public String state;
+public class Agent implements Steppable {
+    private String state;
     
-    /**
-     * @return the role
-     */
-    public String getRole() {
-        return role;
-    }
-
-    /**
-     * @param role the role to set
-     */
-    public void setRole(String role) {
-        this.role = role;
+    public void step(SimState simState) {
+        Simulator simulation = (Simulator) simState;
+        Continuous2D population = simulation.population;
+        Event event = new Event();
     }
 
     /**

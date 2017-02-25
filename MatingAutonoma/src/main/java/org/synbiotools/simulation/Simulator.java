@@ -16,8 +16,8 @@ public class Simulator extends SimState
 {
     //population is a way to represent space (a field)
     public Continuous2D population = new Continuous2D(1.0,100,100);
-    public int numParticipants1 = 75;
-    public int numParticipants2 = 25;
+    public int numAgents1 = 75;
+    public int numAgents2 = 25;
     public Simulator(long seed)
     {
         super(seed);
@@ -26,24 +26,24 @@ public class Simulator extends SimState
     public void start(JSONFileReader file)
     {
         super.start();
-        //population.clear(); 
-        for(int i = 0; i < numParticipants1; i++)
+        population.clear(); 
+        for(int i = 0; i < numAgents1; i++)
         {
-            Participant participant = new Participant();
-            population.setObjectLocation(participant,
+            Agent agent = new Agent();
+            population.setObjectLocation(agent,
                 new Double2D(population.getWidth() * 0.5 + random.nextDouble() - 0.5,
                 population.getHeight() * 0.5 + random.nextDouble() - 0.5)); 
-            participant.setState(file.states.get(0));
-            schedule.scheduleRepeating(participant);
+            agent.setState(file.states.get(0));
+            schedule.scheduleRepeating(agent);
         }
-        for(int i = 0; i < numParticipants2; i++)
+        for(int i = 0; i < numAgents2; i++)
         {
-            Participant participant = new Participant();
-            population.setObjectLocation(participant,
+            Agent agent = new Agent();
+            population.setObjectLocation(agent,
                 new Double2D(population.getWidth() * 0.5 + random.nextDouble() - 0.5,
                 population.getHeight() * 0.5 + random.nextDouble() - 0.5)); 
-            participant.setState(file.states.get(1));
-            schedule.scheduleRepeating(participant);
+            agent.setState(file.states.get(1));
+            schedule.scheduleRepeating(agent);
         }
         
         
