@@ -11,6 +11,10 @@ import sim.field.network.*;
  */
 public class Event extends Participant{
     Object mate = null;
+<<<<<<< HEAD
+=======
+    
+>>>>>>> 12575275263e4b8db85a5f61d73d75d90be9bfa0
     //Bag allParticipants = population.getAllObjects();
     //mate = simulation.(random.nextInt(simulation.numObjs));
 }

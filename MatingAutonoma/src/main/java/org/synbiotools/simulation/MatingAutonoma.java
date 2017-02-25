@@ -33,7 +33,8 @@ public class MatingAutonoma {
                     System.out.println(json);*/
                     
                     Validator valid = new Validator (JSONFile);
-                    Simulator simulation = new Simulator (4);
+                    Simulator simulator = new Simulator (4);
+                    simulator.start(JSONFile);
 
 		} catch (JsonGenerationException e) {
 			e.printStackTrace();
