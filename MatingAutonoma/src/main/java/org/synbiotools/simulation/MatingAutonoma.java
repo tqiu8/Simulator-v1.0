@@ -14,6 +14,7 @@ import com.fasterxml.jackson.core.*;
 import com.fasterxml.jackson.databind.*;
 import java.io.File;
 import java.io.IOException;
+import static sim.engine.SimState.doLoop;
 
 public class MatingAutonoma {
 
@@ -25,7 +26,7 @@ public class MatingAutonoma {
         ObjectMapper mapper = new ObjectMapper();
         
         try {
-                    JSONFileReader JSONFile = mapper.readValue(new File("/Users/tiffanywu/Documents/research/simulation/exampleJSON.txt"), JSONFileReader.class);
+                    JSONFileReader JSONFile = mapper.readValue(new File("/Users/tammyqiu/Desktop/Gene Drive/Simulator-v1.0/MatingAutonoma/exampleJSON.txt"), JSONFileReader.class);
                     
                     /*System.out.println(JSONFile.inputs.get(0).description);
                     System.out.println(JSONFile.rules.get(1).parentStates.get(0).state);
@@ -33,8 +34,8 @@ public class MatingAutonoma {
                     System.out.println(json);*/
                     
                     Validator valid = new Validator (JSONFile);
-                    Simulator simulator = new Simulator (4);
-                    simulator.start(JSONFile);
+                    doLoop(Simulator.class, args);
+                    System.exit(0);
 
 		} catch (JsonGenerationException e) {
 			e.printStackTrace();

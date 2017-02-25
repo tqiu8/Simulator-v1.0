@@ -19,6 +19,7 @@ public class Agent implements Steppable {
         Simulator simulation = (Simulator) simState;
         Continuous2D population = simulation.population;
         Event event = new Event();
+        double randomMultiplier = 0.1;
     }
 
     /**

@@ -1,0 +1,98 @@
+{
+	"version": "1.1",
+
+	"states": [
+		"a",
+		"b",
+		"c",
+		"d"
+	],
+	
+	"inputs": [
+		{
+			"input": "gene",
+			"description": "Gene being inquired about"
+		},
+		{
+			"input": "notGene",
+			"description": "Lack of gene"
+		}
+	],
+	
+	"outputs": [
+		{
+			"output": "YES",
+			"description": "There is a majority"
+		},
+		{
+			"output": "NO",
+			"description": "There is not a majority"
+		}
+	],
+	
+	"rules": [
+		{
+			"parentStates": [
+				{"role": "1", "state": "a"},
+				{"role": "2", "state": "b"}
+			],
+			"offspringStates": [
+				{"role": "1", "state": "c"},
+				{"role": "2", "state": "c"}
+			]
+		},
+		{
+			"parentStates": [
+				{"role": "1", "state": "a"},
+				{"role": "2", "state": "c"}
+			],
+			"offspringStates": [
+				{"role": "1", "state": "a"},
+				{"role": "2", "state": "d"}
+			]
+		},
+		{
+			"parentStates": [
+				{"role": "1", "state": "b"},
+				{"role": "2", "state": "d"}
+			],
+			"offspringStates": [
+				{"role": "1", "state": "b"},
+				{"role": "2", "state": "c"}
+			]
+		},
+		{
+			"parentStates": [
+				{"role": "1", "state": "c"},
+				{"role": "2", "state": "d"}
+			],
+			"offspringStates": [
+				{"role": "1", "state": "c"},
+				{"role": "2", "state": "c"}
+			]
+		}
+	],
+
+	"inputMap": [
+		{
+			"input": "gene", 
+			"state": "a"
+		}, 
+		{
+			"input": "notGene", 
+			"state": "b"
+		}
+	],
+
+	"outputMap": [
+		{
+			"state": "c", 
+			"output": "NO"
+		},
+		{
+			"state": "d", 
+			"output": "YES"
+		}
+	]
+
+}
